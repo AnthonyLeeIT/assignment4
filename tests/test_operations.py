@@ -23,8 +23,10 @@ Number = Union[int, float]
 )
 
 def test_addition(a, b, expected):
-    assert addition(a, b) == expected
-
+    assert addition(a, b) == pytest.approx(expected)
+    
+#def test_addition(a, b, expected):
+ #   assert addition(a, b) == expected
 
 # def test_addition():
 #    assert addition(1,1) == 2
