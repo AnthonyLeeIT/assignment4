@@ -22,8 +22,12 @@ Number = Union[int, float]
     ]                                
 )
 
-def test_addition():
-    assert addition(1,1) == 2
+def test_addition(a, b, expected):
+    assert addition(a, b) == expected
+
+
+# def test_addition():
+#    assert addition(1,1) == 2
 
 def test_subtraction():
     assert subtraction(1,1) == 0
