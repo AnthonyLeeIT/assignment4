@@ -58,43 +58,43 @@ def test_subtraction(a, b, expected):
 @pytest.mark.parametrize( 
     "a, b, expected",
     [
-        (5, 10, 15),
+        (5, 10, 50),
         (0, 0, 0),
-        (-6, 4, -2),
-        (5.7, 4.3, 10.0),
-        (-5.7, 4.3, -1.4),
+        (-6, 4, -24),
+        (5.7, 4.3, 24.51),
+        (-5.7, 4.3, -24.51),
     ],
     ids=[
-        "add_two_positive_integers",
-        "add_two_zeros",
-        "add_negative_and_positive_integer",
-        "add_two_positive_floats",
-        "add_negative_float_and_positive_float",
+        "multiply_two_positive_integers",
+        "multiply_two_zeros",
+        "multiply_negative_and_positive_integer",
+        "multiply_two_positive_floats",
+        "multiply_negative_float_and_positive_float",
     ]                                
 )
-def test_multiplication():
-    assert multiplication(1,1) == 1
+def test_multiplication(a, b, expected):
+    assert multiplication(a, b) == pytest.approx(expected)
 
 # Division positive tests
 @pytest.mark.parametrize( 
     "a, b, expected",
     [
-        (5, 10, 15),
-        (0, 0, 0),
-        (-6, 4, -2),
-        (5.7, 4.3, 10.0),
-        (-5.7, 4.3, -1.4),
+        (10, 5, 2),
+        (-10, -5, 2),
+        (-24, 6, -4),
+        (5.7, 4.3, 1.3255814),
+        (-5.7, 4.3, -1.3255814),
     ],
     ids=[
-        "add_two_positive_integers",
-        "add_two_zeros",
-        "add_negative_and_positive_integer",
-        "add_two_positive_floats",
-        "add_negative_float_and_positive_float",
+        "divide_two_positive_integers",
+        "divide_two_negative_integers",
+        "divide_negative_and_positive_integer",
+        "divide_two_positive_floats",
+        "divide_negative_float_and_positive_float",
     ]                                
 )
-def test_division_positive():
-    assert division(1,1) == 1
+def test_division(a, b, expected):
+    assert division(a, b) == pytest.approx(expected)
 
 # Division by zero tests
 
