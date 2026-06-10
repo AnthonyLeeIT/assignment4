@@ -81,7 +81,7 @@ def test_multiplication(a, b, expected):
         (-10, -5, 2),
         (-24, 6, -4),
         (10.0, 5.0, 2.0),
-        (-10.0, 5.0, 2.0),
+        (-10.0, 5.0, -2.0),
     ],
     ids=[
         "divide_two_positive_integers",
