@@ -110,7 +110,7 @@ def test_division(a, b, expected):
     ]
 )
 
-def test_division_by_zero():
+def test_division_by_zero(a, b):
     """Test division by zero."""
     with pytest.raises(ValueError, match="Division by zero is not allowed."):
-        division(1, 0)
+        division(a, b)
