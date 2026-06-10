@@ -96,6 +96,20 @@ def test_division(a, b, expected):
 
 # Division by zero tests
 
+@pytest.mark.parametrize(
+    "a, b",
+    [
+        (10, 0),
+        (-10, 0),
+        (0, 0),
+    ],
+    ids=[
+        "divide_positive_dividend_by_zero",
+        "divide_negative_dividend_by_zero",
+        "divide_zero_by_zero",
+    ]
+)
+
 def test_division_by_zero():
     """Test division by zero."""
     with pytest.raises(ValueError, match="Division by zero is not allowed."):
