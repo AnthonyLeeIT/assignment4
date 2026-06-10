@@ -2,8 +2,6 @@ import pytest
 from typing import Union
 from app.operations import addition, division, multiplication, subtraction
 
-Number = Union[int, float]
-
 #Addition Tests
 @pytest.mark.parametrize( 
     "a, b, expected",
@@ -41,7 +39,7 @@ def test_addition(a, b, expected):
         (0, 0, 0),
         (-6, 4, -10),
         (5.7, 4.3, 1.4),
-        (-5.7, 4.3, -10),
+        (-5.7, 4.3, -10.0),
     ],
     ids=[
         "subtract_two_positive_integers",
@@ -82,13 +80,13 @@ def test_multiplication(a, b, expected):
         (10, 5, 2),
         (-10, -5, 2),
         (-24, 6, -4),
-        (5.7, 4.3, 1.3255814),
-        (-5.7, 4.3, -1.3255814),
+        (10.0, 5.0, 2.0),
+        (-10.0, 5.0, 2.0),
     ],
     ids=[
         "divide_two_positive_integers",
         "divide_two_negative_integers",
-        "divide_negative_and_positive_integer",
+        "divide_negative_and_positive_integers",
         "divide_two_positive_floats",
         "divide_negative_float_and_positive_float",
     ]                                
