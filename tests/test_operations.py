@@ -1,6 +1,6 @@
 import pytest
 from typing import Union
-from app.operations import addition, division, multiplication, subtraction
+from app.operations import Operation
 
 #Addition Tests
 @pytest.mark.parametrize( 
@@ -22,13 +22,7 @@ from app.operations import addition, division, multiplication, subtraction
 )
 
 def test_addition(a, b, expected):
-    assert addition(a, b) == pytest.approx(expected)
-
-#def test_addition(a, b, expected):
- #   assert addition(a, b) == expected
-
-# def test_addition():
-#    assert addition(1,1) == 2
+    assert Operation.addition(a, b) == pytest.approx(expected)
 
 
 # Subtractions Tests
@@ -50,7 +44,7 @@ def test_addition(a, b, expected):
     ]                                
 )
 def test_subtraction(a, b, expected):
-    assert subtraction(a, b) == pytest.approx(expected)
+    assert Operation.subtraction(a, b) == pytest.approx(expected)
 
 # Multiplication Tests
 @pytest.mark.parametrize( 
@@ -71,7 +65,7 @@ def test_subtraction(a, b, expected):
     ]                                
 )
 def test_multiplication(a, b, expected):
-    assert multiplication(a, b) == pytest.approx(expected)
+    assert Operation.multiplication(a, b) == pytest.approx(expected)
 
 # Division positive tests
 @pytest.mark.parametrize( 
@@ -92,7 +86,7 @@ def test_multiplication(a, b, expected):
     ]                                
 )
 def test_division(a, b, expected):
-    assert division(a, b) == pytest.approx(expected)
+    assert Operation.division(a, b) == pytest.approx(expected)
 
 # Division by zero tests
 
@@ -113,4 +107,4 @@ def test_division(a, b, expected):
 def test_division_by_zero(a, b):
     """Test division by zero."""
     with pytest.raises(ValueError, match="Division by zero is not allowed."):
-        division(a, b)
+        Operation.division(a, b)

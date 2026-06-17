@@ -6,7 +6,7 @@ and divide numbers based on what the user types.
 import sys
 from typing import List
 import readline
-from app.operations import addition, subtraction, multiplication, division
+from app.calculation import Calculation, CalculationFactory
 
 INVALID_INPUT_MSG = (
     "Invalid input. Expected format: <operation> <num1> <num2>\n"

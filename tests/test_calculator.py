@@ -110,10 +110,10 @@ def test_display_history_with_entries(capsys):
     # Assert
     captured = capsys.readouterr()
     assert "Calculation History:" in captured.out
-    assert "1. AddCalculation(10.0, 5.0) = 15.0" in captured.out
-    assert "2. SubtractCalculation(20.0, 3.0) = 17.0" in captured.out
-    assert "3. MultiplyCalculation(7.0, 8.0) = 56.0" in captured.out
-    assert "4. DivideCalculation(20.0, 4.0) = 5.0" in captured.out
+    assert "1. AddCalculation: 10.0 Add 5.0 = 15.0" in captured.out
+    assert "2. SubtractCalculation: 20.0 Subtract 3.0 = 17.0" in captured.out
+    assert "3. MultiplyCalculation: 7.0 Multiply 8.0 = 56.0" in captured.out
+    assert "4. DivideCalculation: 20.0 Divide 4.0 = 5.0" in captured.out
 
 
 # ---------------------------------------------------------------------------
@@ -173,8 +173,8 @@ def test_calculator_history_command(monkeypatch, capsys):
 
     # Assert
     assert "Calculation History:" in output
-    assert "1. AddCalculation(10.0, 5.0) = 15.0" in output
-    assert "2. SubtractCalculation(20.0, 3.0) = 17.0" in output
+    assert "1. AddCalculation: 10.0 Add 5.0 = 15.0" in output
+    assert "2. SubtractCalculation: 20.0 Subtract 3.0 = 17.0" in output
 
 
 # ---------------------------------------------------------------------------
@@ -194,7 +194,7 @@ def test_calculator_addition(monkeypatch, capsys):
     output = run_calculator(monkeypatch, capsys, ["add 10 5", "exit"])
 
     # Assert
-    assert "Result: AddCalculation(10.0, 5.0) = 15.0" in output
+    assert "Result: AddCalculation: 10.0 Add 5.0 = 15.0" in output
 
 
 def test_calculator_subtraction(monkeypatch, capsys):
@@ -210,7 +210,7 @@ def test_calculator_subtraction(monkeypatch, capsys):
     output = run_calculator(monkeypatch, capsys, ["subtract 20 5", "exit"])
 
     # Assert
-    assert "Result: SubtractCalculation(20.0, 5.0) = 15.0" in output
+    assert "Result: SubtractCalculation: 20.0 Subtract 5.0 = 15.0" in output
 
 
 def test_calculator_multiplication(monkeypatch, capsys):
@@ -226,7 +226,7 @@ def test_calculator_multiplication(monkeypatch, capsys):
     output = run_calculator(monkeypatch, capsys, ["multiply 7 8", "exit"])
 
     # Assert
-    assert "Result: MultiplyCalculation(7.0, 8.0) = 56.0" in output
+    assert "Result: MultiplyCalculation: 7.0 Multiply 8.0 = 56.0" in output
 
 
 def test_calculator_division(monkeypatch, capsys):
@@ -242,7 +242,7 @@ def test_calculator_division(monkeypatch, capsys):
     output = run_calculator(monkeypatch, capsys, ["divide 20 4", "exit"])
 
     # Assert
-    assert "Result: DivideCalculation(20.0, 4.0) = 5.0" in output
+    assert "Result: DivideCalculation: 20.0 Divide 4.0 = 5.0" in output
 
 
 # ---------------------------------------------------------------------------

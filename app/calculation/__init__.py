@@ -16,7 +16,13 @@ class Calculation(ABC):
         pass
 
     def __repr__(self):
-        return f"{self.__class__.__name__}({self.a}, {self.b})"
+        return f"{self.__class__.__name__}(a={self.a}, b={self.b})"
+    
+    def __str__(self):
+        operation_name = self.__class__.__name__.replace('Calculation', '')
+        result = self.execute()
+        return f"{self.__class__.__name__}: {self.a} {operation_name} {self.b} = {result}"
+    
     
 class CalculationFactory:
     """Calculation Factory Method, registers calculation subclasses"""
@@ -29,7 +35,7 @@ class CalculationFactory:
                 raise TypeError(f"{subclass.__name__} must subclass Calculation.")
             key = calculation_type.lower()
             if key in cls._calculations:
-                return subclass
+                raise ValueError(f"Calculation type '{calculation_type}' is already registered.")
             cls._calculations[key] = subclass
             return subclass
         return decorator
