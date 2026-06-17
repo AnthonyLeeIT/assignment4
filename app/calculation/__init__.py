@@ -13,7 +13,7 @@ class Calculation(ABC):
 
     @abstractmethod
     def execute(self) -> float:
-        pass
+        pass # pragma: no cover
 
     def __repr__(self):
         return f"{self.__class__.__name__}(a={self.a}, b={self.b})"
