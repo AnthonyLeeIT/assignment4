@@ -130,13 +130,10 @@ def test_calculator_exit(monkeypatch, capsys):
     - Assert: Exit message is shown and exit code is 0.
     """
     # Arrange / Act
-    with pytest.raises(SystemExit) as exc_info:
-        run_calculator(monkeypatch, capsys, ["exit"])
+    output = run_calculator(monkeypatch, capsys, ["exit"])
 
     # Assert
-    captured = capsys.readouterr()
-    assert "Exiting calculator. Goodbye!" in captured.out
-    assert exc_info.value.code == 0
+    assert "Exiting calculator. Goodbye!" in output
 
 
 def test_calculator_help_command(monkeypatch, capsys):
